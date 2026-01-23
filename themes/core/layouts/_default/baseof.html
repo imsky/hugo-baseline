@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   {{ if .Description }}<meta name="description" content="{{ .Description }}">{{ end }}
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
@@ -45,6 +46,9 @@
   </script>
 </head>
 <body>
-  {{ block "main" . }}{{ end }}
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
 </body>
 </html>

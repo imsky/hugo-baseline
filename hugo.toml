@@ -2,3 +2,14 @@ baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'My Hugo Site'
 theme = 'core'
+
+# URL consistency
+canonifyURLs = false
+relativeURLs = false
+uglyURLs = false
+
+# Sitemap configuration
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
