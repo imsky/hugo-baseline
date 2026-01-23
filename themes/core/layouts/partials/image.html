@@ -1,0 +1,42 @@
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+
+{{- if $src -}}
+  {{- $image := "" -}}
+
+  {{- /* Handle both page resources and global resources */ -}}
+  {{- if $.Page.Resources -}}
+    {{- $image = $.Page.Resources.GetMatch $src -}}
+  {{- end -}}
+
+  {{- if not $image -}}
+    {{- $image = resources.Get $src -}}
+  {{- end -}}
+
+  {{- if $image -}}
+    {{- /* Generate responsive images */ -}}
+    {{- $small := $image.Resize "400x" -}}
+    {{- $medium := $image.Resize "800x" -}}
+    {{- $large := $image.Resize "1200x" -}}
+
+    <img
+      src="{{ $medium.RelPermalink }}"
+      srcset="{{ $small.RelPermalink }} 400w,
+              {{ $medium.RelPermalink }} 800w,
+              {{ $large.RelPermalink }} 1200w"
+      sizes="(max-width: 400px) 400px,
+             (max-width: 800px) 800px,
+             1200px"
+      alt="{{ $alt }}"
+      {{ with $class }}class="{{ . }}"{{ end }}
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+      loading="{{ $loading }}"
+    >
+  {{- else -}}
+    {{- /* Fallback for external images or missing resources */ -}}
+    <img src="{{ $src }}" alt="{{ $alt }}" {{ with $class }}class="{{ . }}"{{ end }} loading="{{ $loading }}">
+  {{- end -}}
+{{- end -}}

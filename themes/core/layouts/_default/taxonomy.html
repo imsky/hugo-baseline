@@ -1,18 +1,27 @@
 {{ define "main" }}
-{{ partial "breadcrumbs.html" . }}
-
 <article>
   <header>
     <h1>{{ .Title }}</h1>
-    {{ with .Content }}
-      <div class="page-content">{{ . }}</div>
+    {{ with .Description }}
+      <p class="taxonomy-description">{{ . }}</p>
     {{ end }}
   </header>
 
-  {{ $paginator := .Paginate .Pages }}
-  {{ if $paginator.Pages }}
+  <!-- Schema.org CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ .Title | jsonify }},
+    "url": {{ .Permalink | jsonify }},
+    {{ with .Description }}"description": {{ . | jsonify }},{{ end }}
+    "numberOfItems": {{ len .Pages }}
+  }
+  </script>
+
+  {{ if .Pages }}
     <ul class="post-list">
-      {{ range $paginator.Pages }}
+      {{ range .Pages }}
         <li>
           <article>
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
@@ -30,10 +39,8 @@
         </li>
       {{ end }}
     </ul>
-
-    {{ partial "pagination.html" . }}
   {{ else }}
-    <p>No posts found.</p>
+    <p>No posts found with this tag/category.</p>
   {{ end }}
 </article>
 {{ end }}

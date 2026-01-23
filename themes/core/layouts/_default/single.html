@@ -1,4 +1,18 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ .Content }}
+{{ partial "breadcrumbs.html" . }}
+
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ partial "post-meta.html" . }}
+  </header>
+
+  {{ partial "toc.html" . }}
+
+  <div class="article-content">
+    {{ .Content }}
+  </div>
+
+  {{ partial "related.html" . }}
+</article>
 {{ end }}

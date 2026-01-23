@@ -1,0 +1,20 @@
+{{- /* Google Analytics */ -}}
+{{ with site.Params.googleAnalytics }}
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ . }}', {
+        {{ if site.Privacy.googleAnalytics.anonymizeIP }}'anonymize_ip': true,{{ end }}
+        {{ if site.Privacy.googleAnalytics.respectDoNotTrack }}'respect_dnt': true{{ end }}
+      });
+    </script>
+{{ end }}
+
+{{- /* Plausible Analytics */ -}}
+{{ if site.Params.plausible }}
+  {{ $domain := site.Params.plausibleDomain | default site.BaseURL }}
+  <script defer data-domain="{{ $domain }}" src="https://plausible.io/js/script.js"></script>
+{{ end }}

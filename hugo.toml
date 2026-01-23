@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://example.com/'  # Update for production
 languageCode = 'en-us'
 title = 'My Hugo Site'
 theme = 'core'
@@ -14,6 +14,85 @@ uglyURLs = false
   filename = 'sitemap.xml'
   priority = 0.5
 
-# Output formats for search index
+# Output formats
 [outputs]
-  home = ['HTML', 'RSS', 'JSON']
+  home = ['HTML', 'RSS', 'JSON', 'WebAppManifest']
+  section = ['HTML', 'RSS']
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+
+# Markup configuration
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = false
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = true
+
+# Related content
+[related]
+  includeNewer = false
+  threshold = 80
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# Pagination
+[pagination]
+  pagerSize = 10
+
+# Taxonomies
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+# Imaging
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+
+# Site parameters
+[params]
+  description = 'A production-grade Hugo site'
+  author = 'Your Name'
+  twitter = ''  # Twitter username (without @)
+  themeColor = '#ffffff'
+  backgroundColor = '#ffffff'
+  shortTitle = 'Hugo'
+
+  # Analytics (optional)
+  googleAnalytics = ''  # GA4 measurement ID (e.g., 'G-XXXXXXXXXX')
+  plausible = false
+  plausibleDomain = ''  # Your domain for Plausible
+
+# Privacy
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+
+# RSS
+[services.rss]
+  limit = 20
+
+# Minification
+[minify]
+  minifyOutput = true
+  [minify.tdewolff.html]
+    keepWhitespace = false

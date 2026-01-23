@@ -4,14 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  {{ if .Description }}<meta name="description" content="{{ .Description }}">{{ end }}
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+
+  {{ partial "favicon.html" . }}
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Pagination SEO -->
+  {{ if .Paginator }}
+    {{ if .Paginator.HasPrev }}
+      <link rel="prev" href="{{ .Paginator.Prev.URL | absURL }}">
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+      <link rel="next" href="{{ .Paginator.Next.URL | absURL }}">
+    {{ end }}
+  {{ end }}
+
+  <!-- Meta Description with Fallback Chain -->
+  {{ $description := .Description | default (.Summary | plainify | truncate 155) | default .Site.Params.description }}
+  {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
+
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/accessibility.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/print.css" | relURL }}" media="print">
+
+  {{ partial "analytics.html" . }}
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
+  {{ with $description }}<meta property="og:description" content="{{ . }}">{{ end }}
   {{ with .Site.Title }}<meta property="og:site_name" content="{{ . }}">{{ end }}
   {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
   {{ if .IsPage }}{{ with .PublishDate }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}{{ end }}
@@ -19,7 +42,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary{{ with .Params.image }}_large_image{{ end }}">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-  {{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+  {{ with $description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
   {{ with .Params.image }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
   {{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
 
@@ -36,7 +59,7 @@
     "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
     {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
     {{ end }}"url": {{ .Permalink | jsonify }},
-    {{ with .Description }}"description": {{ . | jsonify }},{{ end }}
+    {{ with $description }}"description": {{ . | jsonify }},{{ end }}
     {{ with .Params.image }}"image": {{ . | absURL | jsonify }},{{ end }}
     "publisher": {
       "@type": "Organization",
@@ -47,8 +70,13 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
-  <main id="main">
+
+  {{ partial "header.html" . }}
+
+  <main id="main" role="main">
     {{ block "main" . }}{{ end }}
   </main>
+
+  {{ partial "footer.html" . }}
 </body>
 </html>

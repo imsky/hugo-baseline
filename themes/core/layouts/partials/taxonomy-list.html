@@ -1,0 +1,14 @@
+{{ if .Data.Terms }}
+  <ul class="taxonomy-list">
+    {{ range .Data.Terms.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          {{ .Page.Title }}
+          <span class="taxonomy-count">({{ .Count }})</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  <p>No {{ .Type }} found.</p>
+{{ end }}

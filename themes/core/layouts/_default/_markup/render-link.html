@@ -1,0 +1,19 @@
+{{- $url := urls.Parse .Destination -}}
+{{- $isExternal := and $url.Host (ne $url.Host .Page.Site.BaseURL) -}}
+{{- $target := "" -}}
+{{- $rel := "" -}}
+
+{{- if $isExternal -}}
+  {{- $rel = "noopener noreferrer" -}}
+  {{- $target = "_blank" -}}
+{{- end -}}
+
+<a href="{{ .Destination | safeURL }}"
+   {{- with .Title }} title="{{ . }}"{{ end -}}
+   {{- with $target }} target="{{ . }}"{{ end -}}
+   {{- with $rel }} rel="{{ . }}"{{ end -}}>
+  {{- .Text | safeHTML -}}
+  {{- if $isExternal -}}
+    <span class="sr-only"> (opens in new tab)</span>
+  {{- end -}}
+</a>
