@@ -21,6 +21,28 @@
   {{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
   {{ with .Params.image }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
   {{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
+    {{ if .IsPage }}"headline": {{ .Title | jsonify }},{{ else }}"name": {{ .Site.Title | jsonify }},{{ end }}
+    {{ if .IsPage }}"author": {
+      "@type": "Person",
+      "name": {{ .Site.Params.author | default "Anonymous" | jsonify }}
+    },
+    "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+    {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+    {{ end }}"url": {{ .Permalink | jsonify }},
+    {{ with .Description }}"description": {{ . | jsonify }},{{ end }}
+    {{ with .Params.image }}"image": {{ . | absURL | jsonify }},{{ end }}
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ .Site.Title | jsonify }}
+    }
+  }
+  </script>
 </head>
 <body>
   {{ block "main" . }}{{ end }}
