@@ -39,13 +39,21 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .article-content ul, .article-content ol { margin: 1.125rem 0; padding-left: 1.125rem; }
 
 /* Syntax highlighting (Hugo highlight shortcode) */
-.article-content .highlight { margin: 1.575rem 0; border-radius: 12px; overflow: hidden; background: #f6f8fa; border: 1px solid #d0d7de; }
+.article-content .highlight { margin: 1.575rem 0; border-radius: 12px; overflow: hidden; background: #f6f8fa; border: 1px solid #d0d7de; position: relative; }
 .article-content .highlight > div { overflow-x: auto; border-radius: 12px; padding: 0.75rem; -webkit-overflow-scrolling: touch; background: #f6f8fa; }
 .article-content .highlight pre { margin: 0; padding: 0; background: none; border-radius: 0; overflow: visible; border: none; }
 .article-content .highlight table { border-spacing: 0; width: 100%; }
 .article-content .highlight td { padding: 0; margin: 0; border: 0; }
 .article-content .highlight td:first-child { padding-right: 0.75rem; border-right: 1px solid #d0d7de; }
 .article-content .highlight code { background: none; padding: 0; white-space: pre; }
+
+/* Copy code button */
+.copy-code-button { position: absolute; top: 0.5rem; right: 0.5rem; display: flex; align-items: center; gap: 0.35rem; background: #fff; color: #6e6e73; border: 1px solid #d0d7de; border-radius: 6px; padding: 0.35rem 0.6rem; font-size: 0.8125rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; cursor: pointer; transition: all 0.2s ease; z-index: 10; }
+.copy-code-button:hover { background: #f6f8fa; color: #1d1d1f; border-color: #06c; }
+.copy-code-button:active { transform: scale(0.95); }
+.copy-code-button.copied { background: #06c; color: #fff; border-color: #06c; }
+.copy-code-button svg { flex-shrink: 0; }
+.copy-text { white-space: nowrap; }
 
 /* Utilities */
 .breadcrumbs ol { display: flex; list-style: none; gap: 0.45rem; font-size: 0.875rem; color: #6e6e73; margin-bottom: 1.8rem; }
