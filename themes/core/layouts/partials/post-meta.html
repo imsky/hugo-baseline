@@ -1,18 +1,26 @@
 {{ if .IsPage }}
 <div class="post-meta">
+  {{- $hasAuthor := or .Params.author $.Site.Params.author -}}
+  {{- $hasDate := .PublishDate -}}
+  {{- $hasReadTime := .ReadingTime -}}
+
   {{ with .Params.author }}
-    <span class="author p-author h-card">By {{ . }}</span>
+    <span class="author p-author h-card">{{ . }}</span>
   {{ else }}
     {{ with $.Site.Params.author }}
-      <span class="author p-author h-card">By {{ . }}</span>
+      <span class="author p-author h-card">{{ . }}</span>
     {{ end }}
   {{ end }}
+
+  {{- if and $hasAuthor $hasDate }}<span class="meta-sep">·</span>{{ end -}}
 
   {{ with .PublishDate }}
     <time class="dt-published" datetime="{{ .Format "2006-01-02" }}" {{ if ne $.PublishDate $.Lastmod }}title="Updated: {{ $.Lastmod.Format "January 2, 2006" }}"{{ end }}>
       {{ .Format "January 2, 2006" }}
     </time>
   {{ end }}
+
+  {{- if and $hasDate $hasReadTime }}<span class="meta-sep">·</span>{{ end -}}
 
   {{ with .ReadingTime }}
     <span class="reading-time">{{ . }} min read</span>
