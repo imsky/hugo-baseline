@@ -28,7 +28,7 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .post-list time { color: #86868b; font-size: 0.875rem; }
 .post-meta { color: #86868b; font-size: 0.875rem; margin: 1.575rem 0; display: flex; flex-wrap: wrap; gap: 0.625rem; align-items: center; }
 .post-meta time[title] { cursor: help; border-bottom: 1px dotted #86868b; }
-.post-taxonomy { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #f5f5f7; display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.post-taxonomy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #f5f5f7; display: flex; flex-wrap: wrap; gap: 1rem; }
 .tags, .categories { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .taxonomy-label { color: #1d1d1f; font-weight: 600; font-size: 0.8125rem; }
 .tags a { background: #f5f5f7; color: #6e6e73; padding: 0.27rem 0.585rem; border-radius: 6px; font-size: 0.8125rem; }
@@ -79,15 +79,15 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .copy-text { white-space: nowrap; }
 
 /* Related Posts */
-.related-posts { margin-top: 4.5rem; padding-top: 3.15rem; border-top: 1px solid #d2d2d7; }
-.related-posts h2 { font-size: 1.5rem; margin-bottom: 1.575rem; }
-.related-posts ul { list-style: none; display: grid; gap: 2rem; }
-.related-posts article { background: #fbfbfd; border: 1px solid #f5f5f7; border-radius: 12px; padding: 1.575rem; transition: all 0.2s ease; }
+.related-posts { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #d2d2d7; }
+.related-posts h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+.related-posts ul { list-style: none; display: grid; gap: 1rem; }
+.related-posts article { background: #fbfbfd; border: 1px solid #f5f5f7; border-radius: 10px; padding: 1rem; transition: all 0.2s ease; }
 .related-posts article:hover { border-color: #d2d2d7; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); }
-.related-posts h3 { font-size: 1.25rem; margin: 0 0 0.75rem; }
+.related-posts h3 { font-size: 1.1rem; margin: 0 0 0.5rem; }
 .related-posts h3 a { color: #1d1d1f; }
 .related-posts h3 a:hover { color: #06c; }
-.related-posts p { color: #6e6e73; font-size: 0.9375rem; margin: 0 0 0.75rem; line-height: 1.6; }
+.related-posts p { color: #6e6e73; font-size: 0.875rem; margin: 0 0 0.5rem; line-height: 1.5; }
 .related-posts time { color: #86868b; font-size: 0.8125rem; }
 
 /* Utilities */
