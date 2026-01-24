@@ -10,6 +10,7 @@
 
     {{ $position := 2 }}
     {{ range $index, $element := .Ancestors.Reverse }}
+      {{ if not .IsHome }}
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="{{ .RelPermalink }}">
           <span itemprop="name">{{ .Title }}</span>
@@ -17,6 +18,7 @@
         <meta itemprop="position" content="{{ $position }}">
       </li>
       {{ $position = add $position 1 }}
+      {{ end }}
     {{ end }}
 
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
