@@ -42,19 +42,22 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 /* Article */
 .article-content { line-height: 1.7; }
 .article-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 2.25rem 0; }
-.article-content pre { background: #f6f8fa; color: #24292f; padding: 0.75rem; overflow-x: auto; border-radius: 12px; margin: 1.575rem 0; max-width: 100%; border: 1px solid #d0d7de; }
-.article-content code { background: #f5f5f7; padding: 0.18rem 0.405rem; border-radius: 5px; font-family: Monaco, Consolas, monospace; font-size: 0.9em; color: #24292f; }
-.article-content pre code { background: none; color: inherit; padding: 0; }
+.article-content pre { background: #f6f8fa; padding: 0.75rem; overflow-x: auto; border-radius: 12px; margin: 1.575rem 0; max-width: 100%; border: 1px solid #d0d7de; }
+.article-content code { background: #f5f5f7; padding: 0.18rem 0.405rem; border-radius: 5px; font-family: Monaco, Consolas, monospace; font-size: 0.9em }
+.article-content pre code { background: none; padding: 0; }
 .article-content blockquote { border-left: 3px solid #d2d2d7; padding-left: 1.125rem; margin: 1.575rem 0; color: #6e6e73; font-style: italic; }
 .article-content ul, .article-content ol { margin: 1.125rem 0; padding-left: 1.125rem; }
 
 /* Syntax highlighting (Hugo highlight shortcode) */
 .article-content .highlight { margin: 1.575rem 0; border-radius: 12px; overflow: hidden; background: #f6f8fa; border: 1px solid #d0d7de; position: relative; }
 .article-content .highlight > div { overflow-x: auto; border-radius: 12px; padding: 0.75rem; -webkit-overflow-scrolling: touch; background: #f6f8fa; }
-.article-content .highlight pre { margin: 0; padding: 0; background: none; border-radius: 0; overflow: visible; border: none; }
-.article-content .highlight table { border-spacing: 0; width: 100%; }
-.article-content .highlight td { padding: 0; margin: 0; border: 0; }
-.article-content .highlight td:first-child { padding-right: 0.75rem; border-right: 1px solid #d0d7de; }
+.article-content .highlight pre { margin: 0; padding: 0; background: none; border-radius: 0; overflow: visible; border: none; line-height: 1.5; }
+.article-content .highlight table { border-spacing: 0; width: 100%; border-collapse: collapse; }
+.article-content .highlight td { padding: 0; margin: 0; border: 0; vertical-align: top; }
+.article-content .highlight td:first-child { padding-right: 0.75rem; border-right: 1px solid #d0d7de; user-select: none; }
+.article-content .highlight td:first-child code { display: block; }
+.article-content .highlight td:first-child code span { display: block; line-height: 1.5; }
+.article-content .highlight td:last-child code span[style*="display:flex"] { line-height: 1.5; }
 .article-content .highlight code { background: none; padding: 0; white-space: pre; }
 
 /* Copy code button */
@@ -120,8 +123,8 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
   .categories a:hover { color: #2997ff; }
   .tag-heading a { background: #3a3a3c; color: #a1a1a6; }
   .tag-heading a:hover { background: #48484a; color: #a1a1a6; }
-  .article-content pre { background: #2c2c2e; color: #f5f5f7; border-color: #3a3a3c; }
-  .article-content code { background: #3a3a3c; color: #f5f5f7; }
+  .article-content pre { background: #2c2c2e; border-color: #3a3a3c; }
+  .article-content code { background: #3a3a3c }
   .article-content blockquote { border-left-color: #48484a; color: #a1a1a6; }
   .article-content .highlight { background: #2c2c2e; border-color: #3a3a3c; }
   .article-content .highlight > div { background: #2c2c2e; }
@@ -129,6 +132,7 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
   .copy-code-button { background: #3a3a3c; color: #a1a1a6; border-color: #48484a; }
   .copy-code-button:hover { background: #48484a; color: #f5f5f7; border-color: #2997ff; }
   .copy-code-button.copied { background: #2997ff; color: #fff; border-color: #2997ff; }
+  .highlight pre {color: #3a3a3c}
   .related-posts { border-top-color: #3a3a3c; }
   .related-posts article { background: #2c2c2e; border-color: #3a3a3c; }
   .related-posts article:hover { border-color: #48484a; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
