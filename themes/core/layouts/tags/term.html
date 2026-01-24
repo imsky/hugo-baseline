@@ -1,0 +1,46 @@
+{{ define "main" }}
+<article>
+  <header>
+    <p class="tag-heading"><a href="{{ "/tags/" | relURL }}{{ .Title | urlize }}">{{ .Title }}</a></p>
+    {{ with .Description }}
+      <p class="taxonomy-description">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <!-- Schema.org CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ .Title | jsonify }},
+    "url": {{ .Permalink | jsonify }},
+    {{ with .Description }}"description": {{ . | jsonify }},{{ end }}
+    "numberOfItems": {{ len .Pages }}
+  }
+  </script>
+
+  {{ if .Pages }}
+    <ul class="post-list">
+      {{ range .Pages }}
+        <li>
+          <article>
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ with .Description }}
+              <p>{{ . }}</p>
+            {{ else }}
+              {{ with .Summary }}
+                <p>{{ . | plainify | truncate 155 }}</p>
+              {{ end }}
+            {{ end }}
+            <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+              {{ .PublishDate.Format "January 2, 2006" }}
+            </time>
+          </article>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>No posts found with this tag.</p>
+  {{ end }}
+</article>
+{{ end }}
