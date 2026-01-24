@@ -1,0 +1,29 @@
+{{- /* Detect first image for Open Graph / Twitter Cards */ -}}
+{{- $ogImage := .Params.image -}}
+
+{{- /* Fallback 1: Page bundle resources */ -}}
+{{- if not $ogImage -}}
+  {{- with first 1 (.Resources.ByType "image") -}}
+    {{- $ogImage = (index . 0).RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Fallback 2: First image in rendered content */ -}}
+{{- if not $ogImage -}}
+  {{- if .Content -}}
+    {{- $imgMatches := findRESubmatch `<img[^>]+src="([^"]+)"` .Content 1 -}}
+    {{- if $imgMatches -}}
+      {{- $ogImage = index (index $imgMatches 0) 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Fallback 3: Site-wide default */ -}}
+{{- if not $ogImage -}}
+  {{- with .Site.Params.images -}}
+    {{- $ogImage = index . 0 -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Return the image URL */ -}}
+{{- return $ogImage -}}

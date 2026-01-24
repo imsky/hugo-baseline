@@ -220,6 +220,40 @@ description: "About this site"
 ---
 ```
 
+### Automatic Social Media Images
+
+The theme automatically detects images for Open Graph and Twitter Cards using this priority:
+
+1. **Front matter `image`** (highest priority):
+   ```yaml
+   image: "images/custom-social.jpg"
+   ```
+
+2. **Page bundle resources** (first image file):
+   ```
+   content/posts/my-post/
+     ├── index.md
+     └── featured.jpg  ← Automatically detected
+   ```
+
+3. **First image in content** (markdown or HTML):
+   ```markdown
+   ![My Image](photo.jpg)  ← Automatically detected
+   ```
+
+4. **Site-wide default** (configured in `hugo.toml`):
+   ```toml
+   [params]
+     images = ["images/default-og-image.jpg"]
+   ```
+
+**Best practice:** Use page bundles for optimal performance and reliability.
+
+**Image requirements:**
+- Recommended size: 1200×630 pixels
+- Format: JPG or PNG
+- Max file size: < 300 KB
+
 ## Content Organization
 
 ### Standard Structure

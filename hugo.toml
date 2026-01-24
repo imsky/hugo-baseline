@@ -76,6 +76,9 @@ uglyURLs = false
   backgroundColor = '#ffffff'
   shortTitle = 'Hugo'
 
+  # Social media images
+  images = ["images/default-og-image.jpg"]  # Site-wide fallback for Open Graph/Twitter
+
   # Analytics (optional)
   googleAnalytics = ''  # GA4 measurement ID (e.g., 'G-XXXXXXXXXX')
   plausible = false
