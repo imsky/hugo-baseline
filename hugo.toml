@@ -84,6 +84,21 @@ uglyURLs = false
   plausible = false
   plausibleDomain = ''  # Your domain for Plausible
 
+  # UTM Parameters for external links
+  [params.utm]
+    enabled = true
+
+    # Default UTM parameters
+    source = "my-hugo-site"  # Or domain name
+    medium = "referral"
+    campaign = ""            # Optional, set per-page for campaigns
+    content = ""             # Optional
+    term = ""                # Optional
+
+    # Advanced options
+    excludeDomains = []      # Domains to exclude from UTM tracking
+    preserveExistingUtm = true  # Don't override existing UTM params in URLs
+
 # Privacy
 [privacy]
   [privacy.googleAnalytics]

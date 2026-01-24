@@ -2,13 +2,123 @@
 {{- $isExternal := and $url.Host (ne $url.Host .Page.Site.BaseURL) -}}
 {{- $target := "" -}}
 {{- $rel := "" -}}
+{{- $finalUrl := .Destination -}}
 
 {{- if $isExternal -}}
   {{- $rel = "noopener noreferrer" -}}
   {{- $target = "_blank" -}}
+
+  {{- /* UTM Parameter Logic */ -}}
+  {{- $utmEnabled := false -}}
+  {{- with .Page.Site.Params.utm -}}
+    {{- $utmEnabled = .enabled | default false -}}
+  {{- end -}}
+
+  {{- /* Allow page-level override */ -}}
+  {{- if isset .Page.Params "utm" -}}
+    {{- $pageUtm := .Page.Params.utm -}}
+    {{- if reflect.IsMap $pageUtm -}}
+      {{- $utmEnabled = true -}}
+    {{- else if eq $pageUtm false -}}
+      {{- $utmEnabled = false -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $utmEnabled -}}
+    {{- /* Check if URL scheme is http/https (skip mailto:, tel:, etc.) */ -}}
+    {{- $validScheme := or (eq $url.Scheme "http") (eq $url.Scheme "https") -}}
+
+    {{- if $validScheme -}}
+      {{- /* Check domain exclusions */ -}}
+      {{- $isExcluded := false -}}
+      {{- with .Page.Site.Params.utm.excludeDomains -}}
+        {{- if in . $url.Host -}}
+          {{- $isExcluded = true -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if not $isExcluded -}}
+        {{- /* Get site-level UTM defaults */ -}}
+        {{- $utmSource := "" -}}
+        {{- $utmMedium := "" -}}
+        {{- $utmCampaign := "" -}}
+        {{- $utmContent := "" -}}
+        {{- $utmTerm := "" -}}
+        {{- $preserveExisting := true -}}
+
+        {{- with .Page.Site.Params.utm -}}
+          {{- $utmSource = .source | default "" -}}
+          {{- $utmMedium = .medium | default "" -}}
+          {{- $utmCampaign = .campaign | default "" -}}
+          {{- $utmContent = .content | default "" -}}
+          {{- $utmTerm = .term | default "" -}}
+          {{- $preserveExisting = .preserveExistingUtm | default true -}}
+        {{- end -}}
+
+        {{- /* Override with page-level UTM params */ -}}
+        {{- with .Page.Params.utm -}}
+          {{- if reflect.IsMap . -}}
+            {{- $utmSource = .source | default $utmSource -}}
+            {{- $utmMedium = .medium | default $utmMedium -}}
+            {{- $utmCampaign = .campaign | default $utmCampaign -}}
+            {{- $utmContent = .content | default $utmContent -}}
+            {{- $utmTerm = .term | default $utmTerm -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- /* Parse existing query parameters */ -}}
+        {{- $existingParams := dict -}}
+        {{- with $url.RawQuery -}}
+          {{- $pairs := split . "&" -}}
+          {{- range $pairs -}}
+            {{- $kv := split . "=" -}}
+            {{- if eq (len $kv) 2 -}}
+              {{- $existingParams = merge $existingParams (dict (index $kv 0) (index $kv 1)) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- /* Build new params dict with UTM parameters */ -}}
+        {{- $newParams := $existingParams -}}
+
+        {{- /* Add UTM params only if they have values and don't exist (if preserving) */ -}}
+        {{- if and $utmSource (or (not $preserveExisting) (not (isset $existingParams "utm_source"))) -}}
+          {{- $newParams = merge $newParams (dict "utm_source" $utmSource) -}}
+        {{- end -}}
+        {{- if and $utmMedium (or (not $preserveExisting) (not (isset $existingParams "utm_medium"))) -}}
+          {{- $newParams = merge $newParams (dict "utm_medium" $utmMedium) -}}
+        {{- end -}}
+        {{- if and $utmCampaign (or (not $preserveExisting) (not (isset $existingParams "utm_campaign"))) -}}
+          {{- $newParams = merge $newParams (dict "utm_campaign" $utmCampaign) -}}
+        {{- end -}}
+        {{- if and $utmContent (or (not $preserveExisting) (not (isset $existingParams "utm_content"))) -}}
+          {{- $newParams = merge $newParams (dict "utm_content" $utmContent) -}}
+        {{- end -}}
+        {{- if and $utmTerm (or (not $preserveExisting) (not (isset $existingParams "utm_term"))) -}}
+          {{- $newParams = merge $newParams (dict "utm_term" $utmTerm) -}}
+        {{- end -}}
+
+        {{- /* Build query string from params */ -}}
+        {{- $queryParts := slice -}}
+        {{- range $key, $value := $newParams -}}
+          {{- $queryParts = $queryParts | append (printf "%s=%s" $key ($value | urlquery)) -}}
+        {{- end -}}
+        {{- $queryString := delimit $queryParts "&" -}}
+
+        {{- /* Reconstruct URL */ -}}
+        {{- $finalUrl = printf "%s://%s%s" $url.Scheme $url.Host $url.Path -}}
+        {{- if $queryString -}}
+          {{- $finalUrl = printf "%s?%s" $finalUrl $queryString -}}
+        {{- end -}}
+        {{- with $url.Fragment -}}
+          {{- $finalUrl = printf "%s#%s" $finalUrl . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
-<a href="{{ .Destination | safeURL }}"
+<a href="{{ $finalUrl | safeURL }}"
    {{- with .Title }} title="{{ . }}"{{ end -}}
    {{- with $target }} target="{{ . }}"{{ end -}}
    {{- with $rel }} rel="{{ . }}"{{ end -}}>
