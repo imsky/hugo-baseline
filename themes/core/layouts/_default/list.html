@@ -11,19 +11,19 @@
 
   {{ $paginator := .Paginate .Pages }}
   {{ if $paginator.Pages }}
-    <ul class="post-list">
+    <ul class="post-list h-feed">
       {{ range $paginator.Pages }}
-        <li>
+        <li class="h-entry">
           <article>
-            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <h2 class="p-name"><a class="u-url" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             {{ with .Description }}
-              <p>{{ . }}</p>
+              <p class="p-summary">{{ . }}</p>
             {{ else }}
               {{ with .Summary }}
-                <p>{{ . | plainify | truncate 155 }}</p>
+                <p class="p-summary">{{ . | plainify | truncate 155 }}</p>
               {{ end }}
             {{ end }}
-            <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+            <time class="dt-published" datetime="{{ .PublishDate.Format "2006-01-02" }}">
               {{ .PublishDate.Format "January 2, 2006" }}
             </time>
           </article>

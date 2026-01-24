@@ -1,17 +1,19 @@
 {{ define "main" }}
 {{ partial "breadcrumbs.html" . }}
 
-<article>
+<article class="h-entry">
   <header>
-    <h1>{{ .Title }}</h1>
+    <h1 class="p-name">{{ .Title }}</h1>
     {{ partial "post-meta.html" . }}
   </header>
 
   {{ partial "toc.html" . }}
 
-  <div class="article-content">
+  <div class="article-content e-content">
     {{ .Content }}
   </div>
+
+  <a class="u-url" href="{{ .Permalink }}" hidden></a>
 
   {{ partial "post-taxonomy.html" . }}
 

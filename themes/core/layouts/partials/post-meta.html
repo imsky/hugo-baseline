@@ -1,15 +1,15 @@
 {{ if .IsPage }}
 <div class="post-meta">
   {{ with .Params.author }}
-    <span class="author">By {{ . }}</span>
+    <span class="author p-author h-card">By {{ . }}</span>
   {{ else }}
     {{ with $.Site.Params.author }}
-      <span class="author">By {{ . }}</span>
+      <span class="author p-author h-card">By {{ . }}</span>
     {{ end }}
   {{ end }}
 
   {{ with .PublishDate }}
-    <time datetime="{{ .Format "2006-01-02" }}" {{ if ne $.PublishDate $.Lastmod }}title="Updated: {{ $.Lastmod.Format "January 2, 2006" }}"{{ end }}>
+    <time class="dt-published" datetime="{{ .Format "2006-01-02" }}" {{ if ne $.PublishDate $.Lastmod }}title="Updated: {{ $.Lastmod.Format "January 2, 2006" }}"{{ end }}>
       {{ .Format "January 2, 2006" }}
     </time>
   {{ end }}
