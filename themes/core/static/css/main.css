@@ -55,6 +55,18 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .copy-code-button svg { flex-shrink: 0; }
 .copy-text { white-space: nowrap; }
 
+/* Related Posts */
+.related-posts { margin-top: 4.5rem; padding-top: 3.15rem; border-top: 1px solid #d2d2d7; }
+.related-posts h2 { font-size: 1.5rem; margin-bottom: 1.575rem; }
+.related-posts ul { list-style: none; display: grid; gap: 2rem; }
+.related-posts article { background: #fbfbfd; border: 1px solid #f5f5f7; border-radius: 12px; padding: 1.575rem; transition: all 0.2s ease; }
+.related-posts article:hover { border-color: #d2d2d7; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); }
+.related-posts h3 { font-size: 1.25rem; margin: 0 0 0.75rem; }
+.related-posts h3 a { color: #1d1d1f; }
+.related-posts h3 a:hover { color: #06c; }
+.related-posts p { color: #6e6e73; font-size: 0.9375rem; margin: 0 0 0.75rem; line-height: 1.6; }
+.related-posts time { color: #86868b; font-size: 0.8125rem; }
+
 /* Utilities */
 .breadcrumbs ol { display: flex; list-style: none; gap: 0.45rem; font-size: 0.875rem; color: #6e6e73; margin-bottom: 1.8rem; }
 .breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.45rem; color: #d2d2d7; }
