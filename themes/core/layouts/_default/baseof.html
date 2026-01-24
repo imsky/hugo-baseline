@@ -51,6 +51,13 @@
   {{ with $ogImage }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
   {{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
 
+  <!-- Homepage: Last Post Update -->
+  {{ if .IsHome }}
+    {{ with (index .Site.RegularPages 0) }}
+      <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ end }}
+  {{ end }}
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -63,7 +70,7 @@
     },
     "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
     {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
-    {{ end }}"url": {{ .Permalink | jsonify }},
+    {{ end }}{{ if and .IsHome (index .Site.RegularPages 0) }}{{ with (index .Site.RegularPages 0) }}"dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}{{ end }}"url": {{ .Permalink | jsonify }},
     {{ with $description }}"description": {{ . | jsonify }},{{ end }}
     {{ with $ogImage }}"image": {{ . | absURL | jsonify }},{{ end }}
     "publisher": {
