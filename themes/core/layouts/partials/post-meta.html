@@ -1,23 +1,5 @@
 {{ if .IsPage }}
 <div class="post-meta">
-  {{ with .PublishDate }}
-    <time datetime="{{ .Format "2006-01-02" }}">
-      Published: {{ .Format "January 2, 2006" }}
-    </time>
-  {{ end }}
-
-  {{ if ne .PublishDate .Lastmod }}
-    {{ with .Lastmod }}
-      <time datetime="{{ .Format "2006-01-02" }}">
-        Updated: {{ .Format "January 2, 2006" }}
-      </time>
-    {{ end }}
-  {{ end }}
-
-  {{ with .ReadingTime }}
-    <span class="reading-time">{{ . }} min read</span>
-  {{ end }}
-
   {{ with .Params.author }}
     <span class="author">By {{ . }}</span>
   {{ else }}
@@ -26,22 +8,14 @@
     {{ end }}
   {{ end }}
 
-  {{ with .Params.tags }}
-    <div class="tags">
-      Tags:
-      {{ range . }}
-        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
-    </div>
+  {{ with .PublishDate }}
+    <time datetime="{{ .Format "2006-01-02" }}" {{ if ne $.PublishDate $.Lastmod }}title="Updated: {{ $.Lastmod.Format "January 2, 2006" }}"{{ end }}>
+      {{ .Format "January 2, 2006" }}
+    </time>
   {{ end }}
 
-  {{ with .Params.categories }}
-    <div class="categories">
-      Categories:
-      {{ range . }}
-        <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
-      {{ end }}
-    </div>
+  {{ with .ReadingTime }}
+    <span class="reading-time">{{ . }} min read</span>
   {{ end }}
 </div>
 {{ end }}

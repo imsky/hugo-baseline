@@ -13,6 +13,8 @@
     {{ .Content }}
   </div>
 
+  {{ partial "post-taxonomy.html" . }}
+
   {{ partial "related.html" . }}
 </article>
 {{ end }}
