@@ -22,7 +22,8 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 
 /* Posts */
 .post-list { list-style: none; }
-.post-list > li { margin-bottom: 2.7rem; padding-bottom: 2.7rem; border-bottom: 1px solid #f5f5f7; }
+.post-list > li { margin-bottom: 2.7rem; }
+.post-list > li + li { padding-top: 2.7rem; border-top: 1px solid #f5f5f7; }
 .post-list h2 { margin: 0 0 0.5rem; font-size: 1.75rem; }
 .post-list time { color: #86868b; font-size: 0.875rem; }
 .post-meta { color: #86868b; font-size: 0.875rem; margin: 1.575rem 0; display: flex; flex-wrap: wrap; gap: 0.625rem; align-items: center; }
