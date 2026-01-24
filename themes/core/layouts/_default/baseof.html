@@ -11,12 +11,14 @@
   <link rel="canonical" href="{{ .Permalink }}">
 
   <!-- Pagination SEO -->
-  {{ if .Paginator }}
-    {{ if .Paginator.HasPrev }}
-      <link rel="prev" href="{{ .Paginator.Prev.URL | absURL }}">
-    {{ end }}
-    {{ if .Paginator.HasNext }}
-      <link rel="next" href="{{ .Paginator.Next.URL | absURL }}">
+  {{ if ne .Kind "page" }}
+    {{ if .Paginator }}
+      {{ if .Paginator.HasPrev }}
+        <link rel="prev" href="{{ .Paginator.Prev.URL | absURL }}">
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+        <link rel="next" href="{{ .Paginator.Next.URL | absURL }}">
+      {{ end }}
     {{ end }}
   {{ end }}
 
