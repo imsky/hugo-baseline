@@ -18,8 +18,7 @@
   .tags a:hover { background: #48484a; }
   .categories a { color: #a1a1a6; }
   .categories a:hover { color: #2997ff; }
-  .tag-heading a { background: #3a3a3c; color: #a1a1a6; }
-  .tag-heading a:hover { background: #48484a; color: #a1a1a6; }
+  .tag-heading { background: #3a3a3c; color: #a1a1a6; }
   .article-content pre { background: #2c2c2e; border-color: #3a3a3c; }
   .article-content code { background: #3a3a3c }
   .article-content blockquote { border-left-color: #48484a; color: #a1a1a6; }
