@@ -32,6 +32,9 @@
   {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
 
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  {{ if .Site.Params.darkMode }}
+  <link rel="stylesheet" href="{{ "css/dark-mode.css" | relURL }}">
+  {{ end }}
   <link rel="stylesheet" href="{{ "css/accessibility.css" | relURL }}">
   <link rel="stylesheet" href="{{ "css/print.css" | relURL }}" media="print">
 

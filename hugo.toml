@@ -71,6 +71,7 @@ uglyURLs = false
 [params]
   description = 'A production-grade Hugo site'
   author = 'Your Name'
+  darkMode = true  # Enable dark mode support (follows system preference)
   twitter = ''  # Twitter username (without @)
   themeColor = '#ffffff'
   backgroundColor = '#ffffff'

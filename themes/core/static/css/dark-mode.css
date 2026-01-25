@@ -1,0 +1,54 @@
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body { background: #1c1c1e; color: #f5f5f7; }
+  h1, h2, h3, h4, h5, h6 { color: #f5f5f7; }
+  a { color: #2997ff; }
+  a:hover { color: #6cb8ff; }
+  header[role="banner"] { border-bottom-color: #3a3a3c; }
+  nav[role="navigation"] a { color: #a1a1a6; }
+  footer[role="contentinfo"] { border-top-color: #3a3a3c; color: #a1a1a6; }
+  .post-list > li + li { border-top-color: #3a3a3c; }
+  .post-list time { color: #a1a1a6; }
+  .post-meta { color: #a1a1a6; }
+  .post-meta time[title] { border-bottom-color: #a1a1a6; }
+  .meta-sep { color: #48484a; }
+  .post-taxonomy { border-top-color: #3a3a3c; }
+  .taxonomy-label { color: #f5f5f7; }
+  .tags a { background: #3a3a3c; color: #a1a1a6; }
+  .tags a:hover { background: #48484a; }
+  .categories a { color: #a1a1a6; }
+  .categories a:hover { color: #2997ff; }
+  .tag-heading a { background: #3a3a3c; color: #a1a1a6; }
+  .tag-heading a:hover { background: #48484a; color: #a1a1a6; }
+  .article-content pre { background: #2c2c2e; border-color: #3a3a3c; }
+  .article-content code { background: #3a3a3c }
+  .article-content blockquote { border-left-color: #48484a; color: #a1a1a6; }
+  .article-content table { border-color: #3a3a3c; }
+  .article-content thead { border-bottom-color: #3a3a3c; }
+  .article-content th { background: #2c2c2e; color: #f5f5f7; }
+  .article-content td { border-bottom-color: #3a3a3c; color: #f5f5f7; }
+  .article-content tbody tr:hover { background: #2c2c2e; }
+  .article-content .highlight { background: #2c2c2e; border-color: #3a3a3c; }
+  .article-content .highlight > div { background: #2c2c2e; }
+  .article-content .highlight td:first-child { border-right-color: #3a3a3c; }
+  .copy-code-button { background: #3a3a3c; color: #a1a1a6; border-color: #48484a; }
+  .copy-code-button:hover { background: #48484a; color: #f5f5f7; border-color: #2997ff; }
+  .copy-code-button.copied { background: #2997ff; color: #fff; border-color: #2997ff; }
+  .highlight pre {color: #3a3a3c}
+  .related-posts { border-top-color: #3a3a3c; }
+  .related-posts article { background: #2c2c2e; border-color: #3a3a3c; }
+  .related-posts article:hover { border-color: #48484a; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
+  .related-posts h3 a { color: #f5f5f7; }
+  .related-posts h3 a:hover { color: #2997ff; }
+  .related-posts p { color: #a1a1a6; }
+  .related-posts time { color: #a1a1a6; }
+  .breadcrumbs ol { color: #a1a1a6; }
+  .breadcrumbs li:not(:last-child)::after { color: #48484a; }
+  .table-of-contents { background: #2c2c2e; border-color: #3a3a3c; }
+  .table-of-contents a { color: #f5f5f7; }
+  .table-of-contents a:hover { color: #2997ff; }
+  .pagination a, .pagination-current span { border-color: #3a3a3c; }
+  .pagination a { color: #a1a1a6; }
+  .pagination a:hover { border-color: #48484a; background: #2c2c2e; color: #f5f5f7; }
+  .pagination-current span { background: #2c2c2e; color: #f5f5f7; border-color: #48484a; }
+}
