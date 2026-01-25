@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article>
   <header>
-    <p class="tag-heading"><a href="{{ "/tags/" | relURL }}{{ .Title | urlize }}">{{ .Title }}</a></p>
+    <p class="tag-heading">{{ .Title }}</p>
     {{ with .Description }}
       <p class="taxonomy-description">{{ . }}</p>
     {{ end }}
