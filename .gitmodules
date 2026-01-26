@@ -1,0 +1,3 @@
+[submodule "themes/baseline"]
+	path = themes/baseline
+	url = https://github.com/imsky/hugo-baseline

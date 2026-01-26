@@ -1,0 +1,117 @@
+baseURL = 'https://imsky.github.io/hugo-baseline'  # Update for production
+languageCode = 'en-us'
+title = 'Hugo Baseline'
+theme = 'baseline'
+
+# URL consistency
+canonifyURLs = true
+relativeURLs = false
+uglyURLs = false
+
+# Sitemap configuration
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+# Output formats
+[outputs]
+  home = ['HTML', 'RSS', 'JSON', 'WebAppManifest']
+  section = ['HTML', 'RSS']
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+
+# Markup configuration
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = false
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    style = 'github'
+    lineNos = true
+
+# Related content
+[related]
+  includeNewer = false
+  threshold = 80
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# Pagination
+[pagination]
+  pagerSize = 10
+
+# Taxonomies
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+# Imaging
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+
+# Site parameters
+[params]
+  description = 'Simple foundational Hugo theme'
+  author = 'Ivan Malopinsky'
+  darkMode = true  # Enable dark mode support (follows system preference)
+  twitter = ''  # Twitter username (without @)
+  themeColor = '#ffffff'
+  backgroundColor = '#ffffff'
+  shortTitle = 'Hugo Baseline'
+
+  # Social media images
+  images = ["images/default-og-image.jpg"]  # Site-wide fallback for Open Graph/Twitter
+
+  # Analytics (optional)
+  googleAnalytics = ''  # GA4 measurement ID (e.g., 'G-XXXXXXXXXX')
+  plausible = false
+  plausibleDomain = ''  # Your domain for Plausible
+
+  # UTM Parameters for external links
+  [params.utm]
+    enabled = true
+
+    # Default UTM parameters
+    source = "hugo-baseline"  # Or domain name
+    medium = "referral"
+    campaign = ""            # Optional, set per-page for campaigns
+    content = ""             # Optional
+    term = ""                # Optional
+
+    # Advanced options
+    excludeDomains = []      # Domains to exclude from UTM tracking
+    preserveExistingUtm = true  # Don't override existing UTM params in URLs
+
+# Privacy
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+
+# RSS
+[services.rss]
+  limit = 20
+
+# Minification
+[minify]
+  minifyOutput = true
+  [minify.tdewolff.html]
+    keepWhitespace = false
