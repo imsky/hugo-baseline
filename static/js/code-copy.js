@@ -9,13 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     button.className = 'copy-code-button';
     button.setAttribute('aria-label', 'Copy code to clipboard');
     button.innerHTML = `
-      <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M3 10.5V3.5C3 2.67157 3.67157 2 4.5 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
       <span class="copy-text">Copy</span>
     `;
-
     // Add button to code block
     codeBlock.style.position = 'relative';
     codeBlock.insertBefore(button, codeBlock.firstChild);
@@ -46,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Success feedback
         button.classList.add('copied');
         button.innerHTML = `
-          <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 8L6.5 11.5L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
           <span class="copy-text">Copied!</span>
         `;
 
@@ -56,10 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
           button.classList.remove('copied');
           button.innerHTML = `
-            <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M3 10.5V3.5C3 2.67157 3.67157 2 4.5 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             <span class="copy-text">Copy</span>
           `;
         }, 2000);
