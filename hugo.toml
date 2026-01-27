@@ -1,117 +1,102 @@
-baseURL = 'https://imsky.github.io/hugo-baseline'  # Update for production
-languageCode = 'en-us'
-title = 'Hugo Baseline'
-theme = 'baseline'
+baseURL = 'https://imsky.github.io/hugo-baseline'  # Base URL for the site
+languageCode = 'en-us'  # Language code for content
+title = 'Hugo Baseline'  # Site title
+theme = 'baseline'  # Theme name
 
-# URL consistency
-canonifyURLs = true
-relativeURLs = false
-uglyURLs = false
+canonifyURLs = true  # Convert all relative URLs to absolute
+relativeURLs = false  # Use absolute URLs instead of relative
+uglyURLs = false  # Use clean URLs (no .html extension)
 
-# Sitemap configuration
-[sitemap]
-  changefreq = 'weekly'
-  filename = 'sitemap.xml'
-  priority = 0.5
+[menu]  # Site navigation menus
+  [[menu.main]]  # Main menu item
+    name = "GitHub"  # Display name for menu item
+    url = "https://github.com/imsky/hugo-baseline"  # URL to link to
+    weight = 1  # Sort order (lower numbers first)
 
-# Output formats
-[outputs]
-  home = ['HTML', 'RSS', 'JSON', 'WebAppManifest']
-  section = ['HTML', 'RSS']
+[sitemap]  # XML sitemap configuration
+  changefreq = 'weekly'  # How often pages change
+  filename = 'sitemap.xml'  # Sitemap output filename
+  priority = 0.5  # Default page priority (0.0-1.0)
 
-[mediaTypes."application/manifest+json"]
-  suffixes = ["webmanifest"]
+[outputs]  # Output formats for different page types
+  home = ['HTML', 'RSS', 'JSON', 'WebAppManifest']  # Homepage output formats
+  section = ['HTML', 'RSS']  # Section page output formats
 
-[outputFormats.WebAppManifest]
-  mediaType = "application/manifest+json"
-  rel = "manifest"
+[mediaTypes."application/manifest+json"]  # Custom media type for web app manifest
+  suffixes = ["webmanifest"]  # File extension for manifest
 
-# Markup configuration
-[markup]
-  [markup.goldmark.renderer]
-    unsafe = false
-  [markup.tableOfContents]
-    endLevel = 3
-    ordered = false
-    startLevel = 2
-  [markup.highlight]
-    style = 'github'
-    lineNos = true
+[outputFormats.WebAppManifest]  # Web app manifest output format
+  mediaType = "application/manifest+json"  # Media type for manifest
+  rel = "manifest"  # Link relation type
 
-# Related content
-[related]
-  includeNewer = false
-  threshold = 80
-  toLower = false
-  [[related.indices]]
-    name = "tags"
-    weight = 100
-  [[related.indices]]
-    name = "categories"
-    weight = 80
-  [[related.indices]]
-    name = "date"
-    weight = 10
+[markup]  # Markdown rendering configuration
+  [markup.goldmark.renderer]  # Goldmark renderer settings
+    unsafe = false  # Disable raw HTML in markdown
+  [markup.tableOfContents]  # Table of contents settings
+    endLevel = 3  # Deepest heading level to include
+    ordered = false  # Use unordered list for TOC
+    startLevel = 2  # Shallowest heading level to include
+  [markup.highlight]  # Code syntax highlighting
+    style = 'github'  # Syntax highlighting theme
+    lineNos = true  # Show line numbers in code blocks
 
-# Pagination
-[pagination]
-  pagerSize = 10
+[related]  # Related content configuration
+  includeNewer = false  # Exclude newer posts from related
+  threshold = 80  # Minimum match score (0-100)
+  toLower = false  # Case-sensitive matching
+  [[related.indices]]  # Index for finding related content
+    name = "tags"  # Match by tags
+    weight = 100  # Importance of tags in matching
+  [[related.indices]]  # Index for finding related content
+    name = "categories"  # Match by categories
+    weight = 80  # Importance of categories in matching
+  [[related.indices]]  # Index for finding related content
+    name = "date"  # Match by date proximity
+    weight = 10  # Importance of date in matching
 
-# Taxonomies
-[taxonomies]
-  tag = 'tags'
-  category = 'categories'
+[pagination]  # Pagination settings
+  pagerSize = 10  # Number of items per page
 
-# Imaging
-[imaging]
-  quality = 85
-  resampleFilter = "Lanczos"
+[taxonomies]  # Content taxonomy configuration
+  tag = 'tags'  # Enable tag taxonomy
+  category = 'categories'  # Enable category taxonomy
 
-# Site parameters
-[params]
-  description = 'Simple foundational Hugo theme'
-  author = 'Ivan Malopinsky'
-  darkMode = true  # Enable dark mode support (follows system preference)
+[imaging]  # Image processing settings
+  quality = 85  # JPEG quality (0-100)
+  resampleFilter = "Lanczos"  # Image resampling algorithm
+
+[params]  # Site parameters
+  description = 'Simple foundational Hugo theme'  # Site description
+  author = 'Ivan Malopinsky'  # Site author name
+  darkMode = true  # Enable dark mode support
   twitter = ''  # Twitter username (without @)
-  themeColor = '#ffffff'
-  backgroundColor = '#ffffff'
-  shortTitle = 'Hugo Baseline'
+  themeColor = '#ffffff'  # Theme color for browser chrome
+  backgroundColor = '#ffffff'  # Background color for browser chrome
+  shortTitle = 'Hugo Baseline'  # Short title for PWA
 
-  # Social media images
-  images = ["images/default-og-image.jpg"]  # Site-wide fallback for Open Graph/Twitter
+  images = ["images/default-og-image.jpg"]  # Default social media share image
+  googleAnalytics = ''  # Google Analytics measurement ID
+  plausible = false  # Enable Plausible analytics
+  plausibleDomain = ''  # Domain for Plausible tracking
+  [params.utm]  # UTM tracking parameters
+    enabled = true  # Enable automatic UTM parameters
+    source = "hugo-baseline"  # UTM source parameter
+    medium = "referral"  # UTM medium parameter
+    campaign = ""  # UTM campaign parameter
+    content = ""  # UTM content parameter
+    term = ""  # UTM term parameter
+    excludeDomains = []  # Domains to exclude from UTM tracking
+    preserveExistingUtm = true  # Keep existing UTM params in URLs
 
-  # Analytics (optional)
-  googleAnalytics = ''  # GA4 measurement ID (e.g., 'G-XXXXXXXXXX')
-  plausible = false
-  plausibleDomain = ''  # Your domain for Plausible
+[privacy]  # Privacy settings
+  [privacy.googleAnalytics]  # Google Analytics privacy
+    anonymizeIP = true  # Anonymize visitor IP addresses
+    respectDoNotTrack = true  # Honor Do Not Track browser setting
 
-  # UTM Parameters for external links
-  [params.utm]
-    enabled = true
+[services.rss]  # RSS feed configuration
+  limit = 20  # Maximum number of items in RSS feed
 
-    # Default UTM parameters
-    source = "hugo-baseline"  # Or domain name
-    medium = "referral"
-    campaign = ""            # Optional, set per-page for campaigns
-    content = ""             # Optional
-    term = ""                # Optional
-
-    # Advanced options
-    excludeDomains = []      # Domains to exclude from UTM tracking
-    preserveExistingUtm = true  # Don't override existing UTM params in URLs
-
-# Privacy
-[privacy]
-  [privacy.googleAnalytics]
-    anonymizeIP = true
-    respectDoNotTrack = true
-
-# RSS
-[services.rss]
-  limit = 20
-
-# Minification
-[minify]
-  minifyOutput = true
-  [minify.tdewolff.html]
-    keepWhitespace = false
+[minify]  # HTML/CSS/JS minification
+  minifyOutput = true  # Enable output minification
+  [minify.tdewolff.html]  # HTML minification settings
+    keepWhitespace = false  # Remove unnecessary whitespace
