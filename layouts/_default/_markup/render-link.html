@@ -1,3 +1,9 @@
+{{/*
+  Markdown Link Render Hook
+  Customizes how markdown links are rendered in content files.
+  Automatically opens external links in new tabs, adds UTM tracking parameters when enabled,
+  and includes accessibility improvements like screen reader text for external links.
+*/}}
 {{- $url := urls.Parse .Destination -}}
 {{- $isExternal := and $url.Host (ne $url.Host .Page.Site.BaseURL) -}}
 {{- $target := "" -}}

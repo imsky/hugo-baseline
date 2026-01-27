@@ -1,3 +1,8 @@
+{{/*
+  Post Meta Partial
+  Displays post metadata including author, publication date, and estimated reading time.
+  Includes microformats markup for better machine readability.
+*/}}
 {{ if .IsPage }}
 <div class="post-meta">
   {{- $hasAuthor := or .Params.author $.Site.Params.author -}}

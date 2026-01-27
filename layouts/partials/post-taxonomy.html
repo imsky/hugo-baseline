@@ -1,3 +1,8 @@
+{{/*
+  Post Taxonomy Partial
+  Displays tags and categories associated with a post at the bottom of the content.
+  Provides clickable links to taxonomy term pages for content discovery.
+*/}}
 {{ if .IsPage }}
   {{ if or .Params.tags .Params.categories }}
     <div class="post-taxonomy">

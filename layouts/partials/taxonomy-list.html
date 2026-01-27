@@ -1,3 +1,8 @@
+{{/*
+  Taxonomy List Partial
+  Displays a list of taxonomy terms (tags or categories) alphabetically with post counts.
+  Reusable component used by the terms.html layout.
+*/}}
 {{ if .Data.Terms }}
   <ul class="taxonomy-list">
     {{ range .Data.Terms.Alphabetical }}
