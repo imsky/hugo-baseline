@@ -1,20 +1,20 @@
 {{ if .IsPage }}
   {{ if or .Params.tags .Params.categories }}
     <div class="post-taxonomy">
-      {{ with .Params.tags }}
-        <div class="tags">
-          <span class="taxonomy-label">Tags:</span>
-          {{ range . }}
-            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-        </div>
-      {{ end }}
-
       {{ with .Params.categories }}
         <div class="categories">
           <span class="taxonomy-label">Categories:</span>
           {{ range . }}
             <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ with .Params.tags }}
+        <div class="tags">
+          <span class="taxonomy-label">Tags:</span>
+          {{ range . }}
+            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
           {{ end }}
         </div>
       {{ end }}

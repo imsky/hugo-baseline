@@ -29,7 +29,7 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .post-meta { color: #86868b; font-size: 0.875rem; margin: 1.575rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .post-meta time[title] { cursor: help; border-bottom: 1px dotted #86868b; }
 .meta-sep { color: #d2d2d7; }
-.post-taxonomy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #f5f5f7; display: flex; flex-wrap: wrap; gap: 1rem; }
+.post-taxonomy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #f5f5f7; display: flex; flex-direction: column; gap: 1rem; }
 .tags, .categories { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .taxonomy-label { color: #1d1d1f; font-weight: 600; font-size: 0.8125rem; }
 .tags a { background: #f5f5f7; color: #6e6e73; padding: 0.27rem 0.585rem; border-radius: 6px; font-size: 0.8125rem; }
@@ -111,4 +111,13 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
   html { font-size: 16px; }
   body { padding: 1.575rem 1.25rem; }
   .site-header { flex-direction: column; align-items: flex-start; gap: 0.99rem; }
+
+  /* Reduce tag padding on mobile */
+  .tags a { min-height: 0}
+
+  /* Fix breadcrumb last item vertical alignment */
+  .breadcrumbs li { display: flex; align-items: center; }
+
+  /* Increase tags/categories font size on mobile */
+  .tags a, .categories a { font-size: 0.875rem; }
 }
