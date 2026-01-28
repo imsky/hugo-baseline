@@ -113,38 +113,6 @@ theme = "hugo-baseline"
     weight = 3
 ```
 
-## Content Structure
-
-### Creating Posts
-
-Create new posts in the `content/posts/` directory:
-
-```bash
-hugo new posts/my-first-post.md
-```
-
-Front matter example:
-
-```yaml
----
-title: "My First Post"
-date: 2026-01-28T12:00:00Z
-description: "A brief description of the post"
-tags: ["hugo", "web-development"]
-categories: ["tutorials"]
----
-
-Your content here...
-```
-
-### Custom Page Layout
-
-For custom pages (like About), create them in the `content/` directory:
-
-```bash
-hugo new about.md
-```
-
 ## Customization
 
 ### Colors & Styling
@@ -217,14 +185,6 @@ hugo-baseline/
 └── LICENSE                 # MIT License
 ```
 
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -234,10 +194,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This theme is released under the MIT License. See [LICENSE](LICENSE) for details.
 
 Copyright (c) 2026 Ivan Malopinsky
-
-## Credits
-
-Inspired by Apple's design language and modern web standards.
 
 ## Support
 
