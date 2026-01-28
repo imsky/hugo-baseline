@@ -1,6 +1,6 @@
 # Hugo Baseline
 
-A clean, minimal, and highly accessible Hugo theme with modern design principles inspired by Apple's design language.
+A clean, minimal, and highly accessible Hugo theme with modern design principles.
 
 ## Features
 
@@ -62,15 +62,6 @@ Then add to your `hugo.toml`:
 theme = "hugo-baseline"
 ```
 
-### Manual Installation
-
-Clone or download the repository into your Hugo site's `themes` directory:
-
-```bash
-cd themes
-git clone https://github.com/imsky/hugo-baseline.git
-```
-
 ## Configuration
 
 Here's a comprehensive example configuration for `hugo.toml`:
@@ -95,38 +86,22 @@ theme = "hugo-baseline"
   showRelated = true
   showToc = true
   showBreadcrumbs = true
-
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-  
-  [[menu.main]]
-    name = "Blog"
-    url = "/posts/"
-    weight = 2
-  
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 3
 ```
 
 ## Customization
 
-### Colors & Styling
-
-The theme uses CSS custom properties for easy customization. Override styles by creating a `assets/css/custom.css` file in your site.
-
 ### Analytics
 
-To add analytics, configure your tracking ID in `hugo.toml`:
+Configure analytics in `hugo.toml`:
 
 ```toml
 [params]
   # Google Analytics
   googleAnalytics = "G-XXXXXXXXXX"
+  
+  # Plausible Analytics
+  plausible = true
+  plausibleDomain = "yourdomain.com"
   
   # Or add custom analytics code in layouts/partials/analytics.html
 ```
@@ -153,36 +128,6 @@ Per-page images can be set in front matter:
 ```yaml
 images:
   - /images/post-specific-image.png
-```
-
-## Development
-
-To run the theme locally for development:
-
-```bash
-hugo server -D
-```
-
-Visit `http://localhost:1313` to see your site.
-
-## File Structure
-
-```
-hugo-baseline/
-├── layouts/
-│   ├── _default/
-│   │   ├── baseof.html    # Base template
-│   │   ├── list.html       # List pages
-│   │   └── single.html     # Single pages
-│   ├── partials/           # Reusable components
-│   ├── shortcodes/         # Custom shortcodes
-│   └── tags/               # Tag templates
-├── static/
-│   ├── css/                # Stylesheets
-│   ├── js/                 # JavaScript files
-│   └── icons/              # Favicons
-├── hugo.toml               # Theme configuration
-└── LICENSE                 # MIT License
 ```
 
 ## Contributing
