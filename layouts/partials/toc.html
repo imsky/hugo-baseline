@@ -1,4 +1,4 @@
-{{ if and .IsPage (gt .WordCount 400) (.TableOfContents) }}
+{{ if and .IsPage (ne .Params.toc false) (gt .WordCount 400) (.TableOfContents) }}
 <aside class="table-of-contents" aria-labelledby="toc-heading">
   <h2 id="toc-heading">Table of Contents</h2>
   {{ .TableOfContents }}
