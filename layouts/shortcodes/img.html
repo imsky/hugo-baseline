@@ -1,3 +1,8 @@
+{{/*
+  Image Shortcode
+  Allows authors to insert responsive images in markdown using {{< img src="..." alt="..." >}}.
+  Wraps the image.html partial to provide shortcode syntax in content files.
+*/}}
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default (.Get 0) | default "" -}}
 {{- $class := .Get "class" | default "" -}}

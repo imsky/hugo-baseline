@@ -1,3 +1,8 @@
+{{/*
+  Image Partial
+  Generates responsive images with srcset for optimal loading on different devices.
+  Automatically resizes images to multiple sizes (400px, 800px, 1200px) and provides fallback for external images.
+*/}}
 {{- $src := .src -}}
 {{- $alt := .alt | default "" -}}
 {{- $class := .class | default "" -}}

@@ -1,3 +1,8 @@
+{{/*
+  Analytics Partial
+  Integrates analytics tracking scripts (Google Analytics and Plausible).
+  Conditionally loads based on site configuration and respects privacy settings like DoNotTrack.
+*/}}
 {{- /* Google Analytics */ -}}
 {{ with site.Params.googleAnalytics }}
     <!-- Google Analytics -->

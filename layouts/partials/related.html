@@ -1,3 +1,8 @@
+{{/*
+  Related Posts Partial
+  Displays up to 3 related posts based on Hugo's content relationships (tags, categories, etc.).
+  Helps keep readers engaged by suggesting relevant content.
+*/}}
 {{ if .IsPage }}
   {{ $related := .Site.RegularPages.Related . | first 3 }}
   {{ if $related }}
