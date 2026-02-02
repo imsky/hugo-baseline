@@ -4,27 +4,9 @@ A clean, minimal, and highly accessible Hugo theme with modern design principles
 
 ## Features
 
-- **Clean & Minimal Design** - Focused on content readability with a distraction-free layout
-- **Fully Responsive** - Mobile-first design that works beautifully on all screen sizes
-- **Accessibility First** - WCAG compliant with skip links, focus indicators, and semantic HTML
-- **Dark Mode Support** - Optional dark mode for comfortable reading in low-light environments
-- **SEO Optimized** - Complete meta tags, Open Graph, Twitter Cards, and JSON-LD structured data
-- **RSS Feed Support** - Built-in RSS feed generation for content syndication
-- **Microformats** - h-entry support for better semantic web compatibility
-- **Fast & Lightweight** - No JavaScript frameworks, minimal CSS, optimized performance
-- **Code Syntax Highlighting** - Beautiful code blocks with copy-to-clipboard functionality
-- **Table of Contents** - Automatic TOC generation for long articles
-- **Related Posts** - Smart related content suggestions
-- **Breadcrumbs** - Hierarchical navigation for better UX
-- **Taxonomies** - Full support for tags and categories
-- **Pagination** - SEO-friendly pagination with prev/next links
-- **Print-Friendly** - Optimized print stylesheet included
-- **Web Manifest** - PWA-ready with web app manifest support
-- **Analytics Ready** - Easy integration with analytics services
-
 ## Requirements
 
-- Hugo version 0.148.2 or higher
+Hugo version 0.148.2 or higher
 
 ## Installation
 
@@ -53,13 +35,13 @@ hugo mod get
 ### As a Git Submodule
 
 ```bash
-git submodule add https://github.com/imsky/hugo-baseline.git themes/hugo-baseline
+git submodule add https://github.com/imsky/hugo-baseline.git themes/baseline
 ```
 
 Then add to your `hugo.toml`:
 
 ```toml
-theme = "hugo-baseline"
+theme = "baseline"
 ```
 
 ## Configuration
@@ -75,13 +57,13 @@ theme = "hugo-baseline"
 [params]
   description = "A blog about technology and creativity"
   author = "Your Name"
-  
+
   # Enable dark mode support
   darkMode = true
-  
+
   # Twitter username (without @)
   twitter = "yourusername"
-  
+
   # Enable/disable features
   showRelated = true
   showToc = true
@@ -98,11 +80,11 @@ Configure analytics in `hugo.toml`:
 [params]
   # Google Analytics
   googleAnalytics = "G-XXXXXXXXXX"
-  
+
   # Plausible Analytics
   plausible = true
   plausibleDomain = "yourdomain.com"
-  
+
   # Or add custom analytics code in layouts/partials/analytics.html
 ```
 
@@ -130,15 +112,9 @@ images:
   - /images/post-specific-image.png
 ```
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## License
 
 This theme is released under the MIT License. See [LICENSE](LICENSE) for details.
-
-Copyright (c) 2026 Ivan Malopinsky
 
 ## Support
 
