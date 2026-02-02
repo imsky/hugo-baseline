@@ -1,8 +1,46 @@
 # Hugo Baseline
 
-A clean, minimal, and highly accessible Hugo theme with modern design principles.
+A production-grade Hugo theme designed to be the foundation for your next site.
+
+Most Hugo themes require extensive configuration to get essential features like SEO metadata, RSS feeds, and social media integration working properly. Hugo Baseline takes a different approach: it's a single, solid theme that provides everything you need out of the box, ready to customize for any type of site.
 
 ## Features
+
+### SEO & Social Media
+* Complete metadata support including OpenGraph tags, Twitter cards, and JSON-LD structured data
+* Automatic social media images using the first image in each post
+* RSS feed generation with reader discovery tags
+* Microformats for enhanced machine readability
+
+### Content & Discovery
+* Related posts to help readers find relevant content
+* Search index compatible with Fuse.js and Lunr.js
+* Automatic table of contents (disable per-page with `toc: false`)
+* Breadcrumb navigation
+* Read time estimates for posts
+
+### Design & User Experience
+* Dark mode support (enable with `darkMode = true` in config)
+* Fully responsive and mobile-optimized
+* Custom 404 error pages
+* Complete favicon setup with multiple sizes and formats
+* Print-friendly styles
+
+### Accessibility
+* ARIA attributes throughout
+* Skip-to-content links
+* Clear focus indicators
+* Semantic HTML structure
+
+### Developer Features
+* Performance-optimized image shortcode
+* Click-to-copy functionality for code blocks
+* PWA-ready with web manifest support
+* External link tracking with UTM parameters
+
+### Analytics
+* Built-in integration for Google Analytics 4
+* Built-in integration for Plausible Analytics
 
 ## Requirements
 
