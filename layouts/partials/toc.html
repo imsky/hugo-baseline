@@ -4,8 +4,10 @@
   Helps readers navigate lengthy articles by showing the document structure.
 */}}
 {{ if and .IsPage (ne .Params.toc false) (gt .WordCount 400) (.TableOfContents) }}
-<aside class="table-of-contents" aria-labelledby="toc-heading">
-  <h2 id="toc-heading">Table of Contents</h2>
-  {{ .TableOfContents }}
+<aside class="table-of-contents">
+  <details open>
+    <summary id="toc-heading">Table of Contents</summary>
+    {{ .TableOfContents }}
+  </details>
 </aside>
 {{ end }}

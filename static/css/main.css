@@ -93,6 +93,11 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .breadcrumbs ol { display: flex; list-style: none; gap: 0.45rem; font-size: 0.875rem; color: #6e6e73; margin-bottom: 1.25rem; }
 .breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.45rem; color: #d2d2d7; }
 .table-of-contents { background: #fbfbfd; padding: 1.575rem; margin: 2.25rem 0; border-radius: 12px; border: 1px solid #f5f5f7; }
+.table-of-contents summary { font-size: 1.375rem; line-height: 1.15; margin: 0 0 0.765rem; font-weight: 600; letter-spacing: -0.022em; color: #000; cursor: pointer; list-style: none; display: flex; align-items: center; }
+.table-of-contents summary::-webkit-details-marker { display: none; }
+.table-of-contents summary::before { content: "▶"; font-size: 0.875rem; transition: transform 0.2s ease; display: inline-block; margin-right: 0.5rem; }
+.table-of-contents details[open] summary::before { transform: rotate(90deg); }
+.table-of-contents summary:hover { color: #06c; }
 .table-of-contents ul { list-style: none; margin: 0; padding-left: 0; }
 .table-of-contents ul ul { padding-left: 1.25rem; margin-top: 0.5rem; }
 .table-of-contents li { margin: 0.5rem 0; }
