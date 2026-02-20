@@ -1,3 +1,8 @@
+{{/*
+  Head Partial
+  Contains all <head> elements including meta tags, SEO markup, Open Graph/Twitter Cards,
+  structured data (JSON-LD), stylesheets, and analytics. Included in baseof.html.
+*/}}
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
