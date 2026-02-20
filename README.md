@@ -90,7 +90,7 @@ Here's a comprehensive example configuration for `hugo.toml`:
 baseURL = "https://example.com/"
 languageCode = "en-us"
 title = "My Blog"
-theme = "hugo-baseline"
+theme = "baseline"
 
 [params]
   description = "A blog about technology and creativity"
@@ -101,11 +101,6 @@ theme = "hugo-baseline"
 
   # Twitter username (without @)
   twitter = "yourusername"
-
-  # Enable/disable features
-  showRelated = true
-  showToc = true
-  showBreadcrumbs = true
 ```
 
 ## Customization
@@ -157,3 +152,7 @@ This theme is released under the MIT License. See [LICENSE](LICENSE) for details
 ## Support
 
 For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/imsky/hugo-baseline).
+
+## Credits
+
+Created by [Ivan Malopinsky](https://imsky.co).
