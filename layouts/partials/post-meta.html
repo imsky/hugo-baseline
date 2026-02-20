@@ -17,7 +17,7 @@
     {{ end }}
   {{ end }}
 
-  {{- if and $hasAuthor $hasDate }}<span class="meta-sep">·</span>{{ end -}}
+  {{- if and $hasAuthor $hasDate }}{{ partial "meta-separator.html" . }}{{ end -}}
 
   {{ with .PublishDate }}
     <time class="dt-published" datetime="{{ .Format "2006-01-02" }}" {{ if ne $.PublishDate $.Lastmod }}title="Updated: {{ $.Lastmod.Format "January 2, 2006" }}"{{ end }}>
@@ -25,7 +25,7 @@
     </time>
   {{ end }}
 
-  {{- if and $hasDate $hasReadTime }}<span class="meta-sep">·</span>{{ end -}}
+  {{- if and $hasDate $hasReadTime }}{{ partial "meta-separator.html" . }}{{ end -}}
 
   {{ with .ReadingTime }}
     <span class="reading-time">{{ . }} min read</span>
