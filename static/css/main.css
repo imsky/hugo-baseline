@@ -103,6 +103,8 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .table-of-contents li { margin: 0.5rem 0; }
 .table-of-contents a { color: #1d1d1f; }
 .table-of-contents a:hover { color: #06c; }
+.table-of-contents nav > ul > li > a { font-weight: 600; }
+.table-of-contents ul ul a { font-weight: 400; }
 .pagination ul { display: flex; list-style: none; gap: 0.585rem; justify-content: center; margin: 3.15rem 0; }
 .pagination a, .pagination-current span { padding: 0.495rem 0.9rem; border: 1px solid #e8e8ea; border-radius: 8px; }
 .pagination a { color: #6e6e73; }
