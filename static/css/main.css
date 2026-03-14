@@ -113,6 +113,10 @@ footer[role="contentinfo"] a { text-decoration: underline; }
 .button:hover { background: #0051a8; color: #fff; }
 
 /* Heading anchor links */
+.heading-anchor::before {
+  content: "¶";
+}
+
 .heading-anchor {
   display: inline-block;
   width: 1em;
