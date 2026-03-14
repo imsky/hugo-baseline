@@ -112,6 +112,24 @@ footer[role="contentinfo"] a { text-decoration: underline; }
 .button { background: #06c; color: #fff; padding: 0.675rem 1.35rem; border-radius: 10px; }
 .button:hover { background: #0051a8; color: #fff; }
 
+/* Heading anchor links */
+.heading-anchor {
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  text-align: center;
+  opacity: 0;
+  color: #767676;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  font-weight: 400;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 1;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   html { font-size: 16px; }
