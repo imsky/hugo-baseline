@@ -19,6 +19,7 @@ header[role="banner"] { padding-bottom: 2.25rem; margin-bottom: 2rem; border-bot
 nav[role="navigation"] ul { display: flex; list-style: none; gap: 1.575rem; }
 nav[role="navigation"] a { color: #6e6e73; font-size: 0.9375rem; }
 footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem; margin-top: 4.5rem; text-align: center; color: #767676; font-size: 0.875rem; }
+footer[role="contentinfo"] a { text-decoration: underline; }
 
 /* Posts */
 .post-list { list-style: none; margin-top: 2.7rem; }
