@@ -18,16 +18,16 @@ header[role="banner"] { padding-bottom: 2.25rem; margin-bottom: 2rem; border-bot
 .site-title { font-size: 1.375rem; font-weight: 600; }
 nav[role="navigation"] ul { display: flex; list-style: none; gap: 1.575rem; }
 nav[role="navigation"] a { color: #6e6e73; font-size: 0.9375rem; }
-footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem; margin-top: 4.5rem; text-align: center; color: #86868b; font-size: 0.875rem; }
+footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem; margin-top: 4.5rem; text-align: center; color: #767676; font-size: 0.875rem; }
 
 /* Posts */
 .post-list { list-style: none; margin-top: 2.7rem; }
 .post-list > li { margin-bottom: 2.7rem; }
 .post-list > li + li { padding-top: 2.7rem; border-top: 1px solid #f5f5f7; }
 .post-list h2 { margin: 0 0 0.5rem; font-size: 1.75rem; }
-.post-list time { color: #86868b; font-size: 0.875rem; }
-.post-meta { color: #86868b; font-size: 0.875rem; margin: 1.575rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-.post-meta time[title] { cursor: help; border-bottom: 1px dotted #86868b; }
+.post-list time { color: #767676; font-size: 0.875rem; }
+.post-meta { color: #767676; font-size: 0.875rem; margin: 1.575rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.post-meta time[title] { cursor: help; border-bottom: 1px dotted #767676; }
 .meta-sep { color: #d2d2d7; user-select: none; }
 .post-taxonomy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid #f5f5f7; display: flex; flex-direction: column; gap: 1rem; }
 .tags, .categories { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
@@ -87,7 +87,7 @@ footer[role="contentinfo"] { border-top: 1px solid #d2d2d7; padding-top: 2.25rem
 .related-posts h3 a { color: #1d1d1f; }
 .related-posts h3 a:hover { color: #06c; }
 .related-posts p { color: #6e6e73; font-size: 0.875rem; margin: 0 0 0.5rem; line-height: 1.5; }
-.related-posts time { color: #86868b; font-size: 0.8125rem; }
+.related-posts time { color: #767676; font-size: 0.8125rem; }
 
 /* Utilities */
 .breadcrumbs ol { display: flex; list-style: none; gap: 0.45rem; font-size: 0.875rem; color: #6e6e73; margin-bottom: 1.25rem; }

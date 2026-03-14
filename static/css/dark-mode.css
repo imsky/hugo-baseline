@@ -33,7 +33,6 @@
   .copy-code-button { background: #3a3a3c; color: #a1a1a6; border-color: #48484a; }
   .copy-code-button:hover { background: #48484a; color: #f5f5f7; border-color: #2997ff; }
   .copy-code-button.copied { background: #2997ff; color: #fff; border-color: #2997ff; }
-  .highlight pre {color: #3a3a3c}
   .related-posts { border-top-color: #3a3a3c; }
   .related-posts article { background: #2c2c2e; border-color: #3a3a3c; }
   .related-posts article:hover { border-color: #48484a; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
